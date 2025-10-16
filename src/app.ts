@@ -1,6 +1,7 @@
 
 import  express  from "express";
-import globalErrorHandler from "./globalErrorHandler";
+import globalErrorHandler from "./middlewares/globalErrorHandler";
+import userRouter from "./user/userRouter";
 
 const app = express();
 
@@ -9,6 +10,9 @@ app.get('/', (req, res, next) => {
         message: "Welcome to user Authantication"
     })
 })
+
+
+app.use('/api/users',userRouter);
 
 // Global Error Handler
 
